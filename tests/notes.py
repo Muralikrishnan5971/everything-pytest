@@ -43,6 +43,18 @@ pytest that a test is expected to fail by using the @pytest.mark.xfail() decorat
 And not during the execution of a test function.
 
 
+pytest -vv test_fail.py   ---> show more information on the failure
+
+Failing a test using pytest.fail()
+
+A test fails if there is any uncaught exception. This can happen if
+
+-> an assert statement fails, which will raise an AssertionError exception,
+-> the test code calls pytest.fail() which will raise an exception, or
+-> any other exception is raised
+
+Only in rare case where assert is not suitable, use pytest.fail().
+
 
 
 
