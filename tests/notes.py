@@ -7,6 +7,7 @@ It looks for .py files starting with test_ or ending with _test.
 
 pytest --tb=no
 --tb=no flag turns off traceback, can we used when we don't want to see full output.
+--tb=short   ---> shorted traceback format
 
 pytest --tb=no test_one.py test_two.py   -- the same can be acheived by only mentioning the directory
 
@@ -54,6 +55,18 @@ A test fails if there is any uncaught exception. This can happen if
 -> any other exception is raised
 
 Only in rare case where assert is not suitable, use pytest.fail().
+
+When calling pytest.fail() or raising an exception directly, we don't get the wonderful assert
+rewriting provided by pytest. However, there are resonable times to use pytest.fail(),
+such as in an assertion helper.
+
+An Assertion helper is an function that is used to wrap up a complicated assertion check.
+
+Note that assert rewriting is only applied to conftest.py files and test files.
+see pytest documentation for more details.
+
+Testing for Expected Exceptions using pytest.raises()
+
 
 
 
